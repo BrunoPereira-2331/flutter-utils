@@ -1,7 +1,8 @@
-import 'package:flutter_utils/services/http/http.dart';
-import 'package:flutter_utils/services/http/responses/http_response.dart';
+import 'package:flutter_utils/src/services/http/http.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+
+import 'responses/http_response.dart';
 
 class HttpService extends Http {
   @override
