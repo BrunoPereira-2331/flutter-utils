@@ -5,17 +5,16 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_utils/main.dart';
-import 'package:flutter_utils/src/screens/login_screen.dart';
+import 'package:flutter_utils/src/app.dart';
+import 'package:flutter_utils/src/core/settings.dart';
+import 'package:flutter_utils/src/layout/screens/login_screen.dart';
 
-import '../utils/test_utils.dart';
 
 void main() {
   group("Tests for the BaseScaffold Widget", () {
     testWidgets("Should start app at login screen", (widgetTester) async {
-      await widgetTester.pumpWidget(const MainApp());
+      await widgetTester.pumpWidget(App(settings: Settings(),));
 
       
       final findLoginScreen = find.byWidget(LoginScreen());;

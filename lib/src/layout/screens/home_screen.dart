@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_utils/src/constants/app_routes.dart';
-import 'package:flutter_utils/src/screens/home_screen.dart';
+import 'package:flutter_utils/src/layout/screens/login_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   late double deviceAvaliableHeight;
   late double deviceAvaliableWidth;
 
@@ -29,24 +29,13 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextFormField(
-              key: Key("usernameTextField"),
-              controller: usernameTextController,
-              decoration: const InputDecoration(hintText: "Username"),
-            ),
-            TextFormField(
-              key: Key("passwordTextField"),
-              controller: passwordTextController,
-              decoration: const InputDecoration(hintText: "Password"),
-            ),
+            Text("Home Screen"),
             TextButton(
-              key: Key("signUpButton"),
-            child: Text("Sign up"),
+              child: Text("Exit"),
               onPressed: () async {
                 await Future.delayed(Duration(seconds: 1));
-                Navigator.pushReplacementNamed(context, AppRoutes.homeScreen);
-      
-            }, 
+                Navigator.pushReplacementNamed(context, AppRoutes.loginScreen);
+              },
             ),
           ],
         ),
