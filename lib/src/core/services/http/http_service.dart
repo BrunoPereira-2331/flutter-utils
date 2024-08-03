@@ -1,4 +1,4 @@
-import 'package:flutter_utils/src/services/http/http.dart';
+import 'package:flutter_utils/src/core/services/http/http.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
