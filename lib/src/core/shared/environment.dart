@@ -1,4 +1,4 @@
-import 'package:flutter_utils/src/core/device.dart';
+import 'package:flutter_utils/src/core/shared/device.dart';
 
 enum EnvironmentType {prod, dev, test}
 
