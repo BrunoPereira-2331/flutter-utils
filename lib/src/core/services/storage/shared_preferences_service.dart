@@ -1,4 +1,4 @@
-import 'package:flutter_utils/src/services/storage/storage.dart';
+import 'package:flutter_utils/src/core/services/storage/storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesService extends Storage {

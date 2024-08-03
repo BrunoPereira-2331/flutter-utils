@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_utils/src/core/shared/device.dart';
 import 'package:flutter_utils/src/core/shared/environment.dart';
-import 'package:flutter_utils/src/services/storage/shared_preferences_service.dart';
-import 'package:flutter_utils/src/services/storage/storage.dart';
+import 'package:flutter_utils/src/core/services/storage/shared_preferences_service.dart';
+import 'package:flutter_utils/src/core/services/storage/storage.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
