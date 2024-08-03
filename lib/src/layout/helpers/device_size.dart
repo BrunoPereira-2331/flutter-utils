@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'enums/device_size_type.dart';
-import 'device.dart';
+import '../enums/device_size_type.dart';
+import 'media_query_size_helper.dart';
 
+/// The `DeviceSize` class provides methods to check the type of device size
 class DeviceSize {
   static const double _SMALL_MOBILE = 320;
   static const double _MEDIUM_MOBILE = 480;
@@ -28,25 +29,25 @@ class DeviceSize {
   }
 
   static bool isSmallMobile(BuildContext context) {
-    Size deviceSizeProperties = Device(context).sizeProperties();
+    Size deviceSizeProperties = MediaQuerySizeHelper(context).sizeProperties();
     double deviceAvalibleWidth = deviceSizeProperties.width;
     return deviceAvalibleWidth <= smallMobileBP();
   }
 
   static bool isMediumMobile(BuildContext context) {
-    Size deviceSizeProperties = Device(context).sizeProperties();
+    Size deviceSizeProperties = MediaQuerySizeHelper(context).sizeProperties();
     double deviceAvalibleWidth = deviceSizeProperties.width;
     return deviceAvalibleWidth > smallMobileBP() && deviceAvalibleWidth <= mediumMobileBP();
   }
 
   static bool isLargeMobile(BuildContext context) {
-    Size deviceSizeProperties = Device(context).sizeProperties();
+    Size deviceSizeProperties = MediaQuerySizeHelper(context).sizeProperties();
     double deviceAvalibleWidth = deviceSizeProperties.width;
     return deviceAvalibleWidth > mediumMobileBP() &&
         deviceAvalibleWidth <= largeMobileBP();
   }
   static bool isExtraMobile(BuildContext context) {
-    Size deviceSizeProperties = Device(context).sizeProperties();
+    Size deviceSizeProperties = MediaQuerySizeHelper(context).sizeProperties();
     double deviceAvalibleWidth = deviceSizeProperties.width;
     return deviceAvalibleWidth > largeMobileBP();
   }

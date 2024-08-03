@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'enums/device_size_type.dart';
+import '../enums/device_size_type.dart';
 import 'device_size.dart';
 
 class ResponsiveRender {
