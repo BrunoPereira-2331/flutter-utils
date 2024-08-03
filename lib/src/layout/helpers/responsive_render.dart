@@ -18,22 +18,22 @@ class ResponsiveRender {
           if (smallLayoutCallback != null) {
             return smallLayoutCallback();
           }
-          throw errorMessage + " small";
+          throw "$errorMessage small";
         case DeviceSizeType.medium:
           if (mediumLayoutCallback != null) {
             return mediumLayoutCallback();
           }
-          throw errorMessage + " medium";
+          throw "$errorMessage medium";
         case DeviceSizeType.large:
           if (largeLayoutCallback != null) {
             return largeLayoutCallback();
           }
-          throw errorMessage + " large";
+          throw "$errorMessage large";
         case DeviceSizeType.extra:
           if (extraLayoutCallback != null) {
             return extraLayoutCallback();
           }
-          throw errorMessage + " extra";
+          throw "$errorMessage extra";
       }
     } catch (e) {
       return Container();

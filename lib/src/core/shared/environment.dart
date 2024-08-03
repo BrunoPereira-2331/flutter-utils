@@ -55,7 +55,7 @@ class Environment {
   }
 
   /// Returns full URL with HTTPS
-  static String get domainUrl => "https://${domain}.com.br";
+  static String get domainUrl => "https://$domain.com.br";
 
   static  bool get isDevMode => getType() == EnvironmentType.dev;
   static  bool get isProdMode => getType() == EnvironmentType.prod;

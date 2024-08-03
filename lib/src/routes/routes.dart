@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_utils/src/constants/app_routes.dart';
 import 'package:flutter_utils/src/layout/screens/error_screen.dart';
 import 'package:flutter_utils/src/layout/screens/home_screen.dart';
 import 'package:flutter_utils/src/layout/screens/login_screen.dart';
@@ -19,7 +18,7 @@ class Routes {
     } catch (e) {
       screen = const ErrorScreen();
     }
-    return MaterialPageRoute(builder: (_) => HomeScreen());
+    return MaterialPageRoute(builder: (_) => const HomeScreen());
 
   }
 }

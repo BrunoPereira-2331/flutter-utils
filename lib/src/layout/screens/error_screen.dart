@@ -10,6 +10,6 @@ class ErrorScreen extends StatefulWidget {
 class _ErrorScreenState extends State<ErrorScreen> { 
   @override 
   Widget build(BuildContext context) { 
-    return Text("Error"); 
+    return const Text("Error"); 
   }
 }
