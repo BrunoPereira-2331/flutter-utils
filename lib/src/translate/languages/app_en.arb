@@ -1,0 +1,6 @@
+{
+    "taskListLabel": "Task list",
+    "@taskListLabel": {
+        "description": "Task list label"
+    }
+}
