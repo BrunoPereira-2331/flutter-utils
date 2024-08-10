@@ -16,8 +16,8 @@
 class AppRoutes {
   static const String loginScreen = "/login";
   static const String homeScreen = "/home";
-  static const String singletonPattern = "/singleton";
+  static const String _singletonPattern = "/singleton";
   static const String taskList= "/taskList";
-  static const String singletonTaskListScreen = singletonPattern + taskList;
+  static const String singletonTaskListScreen = _singletonPattern + taskList;
 }
 

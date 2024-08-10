@@ -13,8 +13,18 @@ class TaskListViewModel extends ChangeNotifier {
       Task(id: 2, name: "Do the grocery"),
       Task(id: 3, name: "Sleep"),
     ];
+    notifyListeners();
+  }
 
-
-
+  void updateTaskStatus(Task taskToUpdate) {
+     Task updatedTask = Task(
+      id: taskToUpdate.id,
+      name: taskToUpdate.name,
+      finished: !taskToUpdate.finished, // Toggle the status
+    );
+    int indexOldTask =
+        _tasks.indexWhere((oldTask) => oldTask.id == taskToUpdate.id);
+    _tasks[indexOldTask] = updatedTask;
+    notifyListeners();
   }
 }
