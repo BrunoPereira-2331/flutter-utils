@@ -1,6 +1,18 @@
 {
-    "taskListLabel": "Task list",
-    "@taskListLabel": {
+    "labelTaskList": "Task list",
+    "@labelTaskList": {
         "description": "Task list label"
+    },
+    "labelDeleteTask": "Delete task?",
+    "@labelDeleteTask": {
+        "description": "Delete task label"
+    },
+    "labelYes": "Yes",
+    "@labelYes": {
+        "description": "Yes label"
+    },
+    "labelNo": "No",
+    "@labelNo": {
+        "description": "No label"
     }
 }

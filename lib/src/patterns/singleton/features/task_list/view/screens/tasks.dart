@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_utils/src/layout/helpers/media_query_size_helper.dart';
+import 'package:flutter_utils/src/layout/widgets/confirm_dialog.dart';
 import 'package:flutter_utils/src/patterns/singleton/core/models/task.dart';
 import 'package:flutter_utils/src/patterns/singleton/features/task_list/viewmodel/task_list_view_model.dart';
 import 'package:flutter_utils/src/translate/l10n.dart';
@@ -20,9 +21,15 @@ class _TasksScreenState extends State<TasksScreen> {
   double deviceAvaliableWidth = 0;
   // final TaskListViewModel _taskListViewModel = TaskListViewModel();
 
+  bool isLoading = true;
+
   @override
   void initState() {
-    Provider.of<TaskListViewModel>(context, listen: false).fetchTasks();
+    Provider.of<TaskListViewModel>(context, listen: false)
+        .fetchTasks()
+        .then((value) => setState(() {
+              isLoading = false;
+            }));
     super.initState();
   }
 
@@ -43,21 +50,19 @@ class _TasksScreenState extends State<TasksScreen> {
               Container(
                 alignment: Alignment.center,
                 child: Text(
-                  l10n.taskListLabel,
-                  style: TextStyle(fontSize: 24),
+                  l10n.labelTaskList,
+                  style: const TextStyle(fontSize: 24),
                 ),
               ),
-              Container(
-                height: 250,
-                width: deviceAvaliableWidth * 0.8,
-                child: buildTasksList(),
+              SizedBox(
+                height: deviceAvaliableHeight * 0.8,
+                width: deviceAvaliableWidth * 0.9,
+                child: isLoading
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : buildTasksList(),
               )
-              // TextButton(
-              //   child: Text("Login Screen"),
-              //   onPressed: () async {
-              //     Navigator.pushReplacementNamed(context, AppRoutes.loginScreen);
-              //   },
-              // ),
             ],
           ),
         ),
@@ -78,13 +83,33 @@ class _TasksScreenState extends State<TasksScreen> {
             Task currentTask = tasks[index];
             return ListTile(
               title: Text(currentTask.name),
-              trailing: IconButton(
-                icon: Icon(
-                  Icons.add_task_rounded,
-                  color: currentTask.finished ? Colors.green : Colors.black,
-                ),
-                onPressed: () =>
-                    taskListViewModel.updateTaskStatus(currentTask),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.add_task_rounded,
+                      color: currentTask.finished ? Colors.green : Colors.black,
+                    ),
+                    onPressed: () =>
+                        taskListViewModel.updateTaskStatus(currentTask),
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.delete_outline_rounded,
+                      color: Colors.red,
+                    ),
+                    onPressed: () async {
+                      return showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return ConfirmDialog(titleMessage: l10n.labelDeleteTask, leftButtonMessage: l10n.labelNo, rightButtonMessage: l10n.labelYes, rightButtonCallback: () => print(""),);
+                        },
+                      );
+                      // taskListViewModel.delete(currentTask),
+                    }
+                  ),
+                ],
               ),
             );
           },
