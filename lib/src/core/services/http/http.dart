@@ -4,7 +4,7 @@ import 'package:http/http.dart';
 
 import 'responses/http_response.dart';
 
-class Http implements HttpInterface {
+final class Http implements HttpInterface {
   @override
   Future<HttpResponse> delete(String url,
       {Map<String, String>? headers, body}) async {
