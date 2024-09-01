@@ -1,51 +1,33 @@
-import 'package:flutter_utils/src/core/services/http/http.dart';
-import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
+import 'package:flutter_utils/src/core/services/http/http_interface.dart';
 
 import 'responses/http_response.dart';
 
-class HttpService extends Http {
-  @override
+class HttpService {
+  final HttpInterface http;
+
+  HttpService({required this.http});
+
   Future<HttpResponse> delete(String url,
       {Map<String, String>? headers, body}) async {
-    Response response =
-        await http.delete(Uri.parse(url), headers: headers, body: body);
-    return HttpResponse(
-      rawBody: response.body,
-      headers: response.headers,
-      statusCode: response.statusCode,
-    );
+    HttpResponse response =
+        await http.delete(url, headers: headers, body: body);
+    return response;
   }
 
-  @override
   Future<HttpResponse> get(String url,
       {Map<String, String>? headers, dynamic body}) async {
-    Response response = await http.get(Uri.parse(url), headers: headers);
-    return HttpResponse(
-      rawBody: response.body,
-      headers: response.headers,
-      statusCode: response.statusCode,
-    );
+    HttpResponse response = await http.get(url, headers: headers);
+    return response;
   }
 
-  @override
   Future<HttpResponse> post(String url,
       {Map<String, String>? headers, Map? body}) async {
-    Response response = await http.post(Uri.parse(url), headers: headers);
-    return HttpResponse(
-      rawBody: response.body,
-      headers: response.headers,
-      statusCode: response.statusCode,
-    );
+    HttpResponse response = await http.post(url, headers: headers);
+    return response;
   }
 
-  @override
   Future<HttpResponse> put(String url, {headers, body}) async {
-    Response response = await http.put(Uri.parse(url), headers: headers);
-    return HttpResponse(
-      rawBody: response.body,
-      headers: response.headers,
-      statusCode: response.statusCode,
-    );
+    HttpResponse response = await http.put(url, headers: headers);
+    return response;
   }
 }
